@@ -1,5 +1,27 @@
 package com.skillstorm.daos;
 
-public interface ItemDAO {
+import java.util.List;
+
+import com.skillstorm.model.Item;
+
+/**
+ * @author Todd Foreman
+ * The Item Data Access Object interface contains all of the necessary methods to properly execute CRUD operations.
+ */
+public interface ItemDAO 
+{
+	
+	public List<Item> findAll();
+	public Item findById(int id);
+	public Item findByWarehouseID(int warehouseId);
+	public Item findByName(String name);
+	public Item findByPrice(int price);
+	public Item save(Item item);
+	public void updateWarehouse(Item item);
+	public void updateName(Item item); 
+	public void updatePrice(Item item);
+	public void delete(Item item);
+	public void delete(int id);
+	public void deleteMany(int[] ids);
 	
 }
