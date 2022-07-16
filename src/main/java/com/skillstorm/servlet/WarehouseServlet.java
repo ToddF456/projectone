@@ -18,7 +18,7 @@ public class WarehouseServlet extends HttpServlet{
 	private static final long serialVersionUID = -5904700897033421495L;
 	
 	
-	//Quick test on servlet
+	//Quick test on servlet.
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
