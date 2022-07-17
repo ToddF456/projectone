@@ -13,9 +13,10 @@ public interface ItemDAO
 	
 	public List<Item> findAll();
 	public Item findById(int id);
-	public Item findByWarehouseID(int warehouseId);
-	public Item findByName(String name);
-	public Item findByPrice(int price);
+	public List<Item> findByWarehouseID(int warehouseId);
+	public List<Item> findByName(String name);
+	public List<Item> findByPrice(int price);
+	public List<Item> findByPriceRange(int priceMin, int priceMax);
 	public Item save(Item item);
 	public void updateWarehouse(Item item);
 	public void updateName(Item item); 
