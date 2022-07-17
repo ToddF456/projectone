@@ -19,7 +19,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	public static void main(String[] args)
 	{
 		MySQLItemDAOImpl dao = new MySQLItemDAOImpl();
-		System.out.println(dao.findByPriceRange(40, 150));
+		dao.delete(4);
 		
 	}
 	
@@ -163,6 +163,9 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		return null;
 	}
 	
+	/**
+	 * Lists items within a specified price range.
+	 */
 	@Override
 	public List<Item> findByPriceRange(int priceMin, int priceMax)
 	{
@@ -189,39 +192,129 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		return null;
 	}
 
+	/**
+	 * This method creates a new item in the database, allowing the user to
+	 * add the item to any warehouse, set the name of the item, and the price of the item.
+	 */
 	@Override
-	public Item save(Item item) {
-		// TODO Auto-generated method stub
+	public Item save(Item item) 
+	{
+
+		String sql = "INSERT INTO item (warehouse_id, item_name, item_price) VALUES (?, ?, ?)";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			conn.setAutoCommit(false);
+			PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, item.getWarehouseID());
+			ps.setString(2, item.getName());
+			ps.setInt(3, item.getPrice());
+			
+			int rowsAffected = ps.executeUpdate();
+			if(rowsAffected != 0)
+			{
+				ResultSet keys = ps.getGeneratedKeys();
+				conn.commit();
+			} 
+			else 
+			{
+				conn.rollback();
+			}
+		}
+		catch(SQLException e) 
+		{
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public void updateWarehouse(Item item) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE item SET warehouse_id = ? Where item_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, item.getWarehouseID());
+			ps.setInt(2, item.getId());
+			
+			int rowAffected = ps.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void updateName(Item item) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE item SET item_name = ? Where item_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, item.getName());
+			ps.setInt(2, item.getId());
+			
+			int rowAffected = ps.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void updatePrice(Item item) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE item SET item_price = ? Where item_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, item.getPrice());
+			ps.setInt(2, item.getId());
+			
+			int rowAffected = ps.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
 		
 	}
 
 	@Override
 	public void delete(Item item) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM item WHERE item_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, item.getId());
+			
+			int rowAffected = ps.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM item WHERE item_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			
+			int rowAffected = ps.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
