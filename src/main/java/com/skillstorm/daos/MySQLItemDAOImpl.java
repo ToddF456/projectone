@@ -12,11 +12,40 @@ import java.util.List;
 import com.skillstorm.model.Item;
 import com.skillstorm.conf.WarehouseDbCreds;
 
+
+
 public class MySQLItemDAOImpl implements ItemDAO{
 
+	public static void main(String[] args)
+	{
+		MySQLItemDAOImpl dao = new MySQLItemDAOImpl();
+		System.out.println(dao.findByName("Carrots"));
+		
+	}
+	
+	
 	@Override
-	public List<Item> findAll() {
-		// TODO Auto-generated method stub
+	public List<Item> findAll() 
+	{
+		String sql = "SELECT * FROM item";
+		try(Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			LinkedList<Item> items = new LinkedList<>();
+			
+			while(rs.next())
+			{
+				Item item = new Item(rs.getInt("item_id"), rs.getInt("warehouse_id"),
+						rs.getString("item_name"), rs.getInt("item_price"));
+				items.add(item);
+			}
+			return items;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -33,8 +62,24 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	@Override
-	public Item findByName(String name) {
-		// TODO Auto-generated method stub
+	public Item findByName(String name) 
+	{
+		String sql = "SELECT * FROM item WHERE item_name = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				return new Item(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 		return null;
 	}
 
