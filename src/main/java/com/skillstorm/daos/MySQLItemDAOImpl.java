@@ -72,6 +72,35 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 		return null;
 	}
+	
+	/**
+	 * This method finds an item based on it's specific item ID and warehouse ID.
+	 */
+	@Override
+	public Item findByIdAndWarehouseID(int id, int warehouseId) 
+	{
+		String sql = "SELECT * FROM item WHERE item_id = ? AND warehouse_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.setInt(2, warehouseId);
+			ResultSet rs = ps.executeQuery();
+			LinkedList<Item> items = new LinkedList<>();
+			
+			if(rs.next())
+			{
+				return new Item(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
+			}
+			
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 
 	/**
 	 * This method lists all of the items located in the respective warehouse using the warehouse ID.
@@ -128,6 +157,35 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 		return null;
 	}
+	
+	/**
+	 * This method lists all of the items within a specific warehouse.
+	 */
+	@Override
+	public List<Item> findByNameAndWarehouseID(String name, int warehouseId) 
+	{
+		String sql = "SELECT * FROM item WHERE item_name = ? AND warehouse_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setInt(2, warehouseId);
+			ResultSet rs = ps.executeQuery();
+			LinkedList<Item> items = new LinkedList<>();
+			
+			while(rs.next())
+			{
+				Item item = new Item(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
+				items.add(item);
+			}
+			return items;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	/**
 	 *This method lists all of the items which have the specified price in the parameter
@@ -140,6 +198,35 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, price);
+			ResultSet rs = ps.executeQuery();
+			LinkedList<Item> items = new LinkedList<>();
+			
+			while(rs.next())
+			{
+				Item item = new Item(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
+				items.add(item);
+			}
+			return items;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 *This method lists all of the items within a specific warehouse.
+	 */
+	@Override
+	public List<Item> findByPriceAndWarehouseID(int price, int warehouseId) 
+	{
+		String sql = "SELECT * FROM item WHERE item_price = ? AND warehouse_id = ?";
+		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, price);
+			ps.setInt(2,  warehouseId);
 			ResultSet rs = ps.executeQuery();
 			LinkedList<Item> items = new LinkedList<>();
 			
@@ -331,7 +418,8 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	 * an array of item id's to delete them.
 	 */
 	@Override
-	public void deleteMany(int[] ids) {
+	public void deleteMany(int[] ids) 
+	{
 		try(Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
 			for(int id:ids)
