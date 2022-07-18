@@ -1,5 +1,6 @@
 package com.skillstorm.daos;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,13 +17,6 @@ import com.skillstorm.conf.WarehouseDbCreds;
 
 public class MySQLItemDAOImpl implements ItemDAO{
 
-	public static void main(String[] args)
-	{
-		MySQLItemDAOImpl dao = new MySQLItemDAOImpl();
-		dao.delete(4);
-		
-	}
-	
 	
 	/**
 	 * This method find each row within the items table, the main table for this warehouse.
@@ -227,6 +221,9 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		return null;
 	}
 
+	/**
+	 * This method changes which warehouse the item is currently occupying.
+	 */
 	@Override
 	public void updateWarehouse(Item item) 
 	{
@@ -245,6 +242,9 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 	}
 
+	/**
+	 * This method changes the name of an item.
+	 */
 	@Override
 	public void updateName(Item item) 
 	{
@@ -263,6 +263,9 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 	}
 
+	/**
+	 * This method changes the price of an item.
+	 */
 	@Override
 	public void updatePrice(Item item) 
 	{
@@ -281,6 +284,9 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 	}
 
+	/**
+	 * This method deletes an item from the database.
+	 */
 	@Override
 	public void delete(Item item) 
 	{
@@ -299,6 +305,9 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 	}
 
+	/**
+	 * This method deletes an item from the database based on the item id.
+	 */
 	@Override
 	public void delete(int id) 
 	{
@@ -317,9 +326,28 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 	}
 
+	/**
+	 * This method deletes multiple items from a database, by using 
+	 * an array of item id's to delete them.
+	 */
 	@Override
 	public void deleteMany(int[] ids) {
-		// TODO Auto-generated method stub
+		try(Connection conn = WarehouseDbCreds.getInstance().getConnection())
+		{
+			for(int id:ids)
+			{
+				String sql = "DELETE FROM item WHERE item_id = " + id;
+				conn.setAutoCommit(false);
+				Statement stmt = conn.createStatement();
+				stmt.executeUpdate(sql);
+				conn.commit();
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
 		
 	}
 
