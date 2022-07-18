@@ -228,7 +228,8 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	@Override
-	public void updateWarehouse(Item item) {
+	public void updateWarehouse(Item item) 
+	{
 		String sql = "UPDATE item SET warehouse_id = ? Where item_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
@@ -242,11 +243,11 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
-	public void updateName(Item item) {
+	public void updateName(Item item) 
+	{
 		String sql = "UPDATE item SET item_name = ? Where item_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
@@ -260,11 +261,11 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
-	public void updatePrice(Item item) {
+	public void updatePrice(Item item) 
+	{
 		String sql = "UPDATE item SET item_price = ? Where item_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
@@ -278,12 +279,11 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		{
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 	@Override
-	public void delete(Item item) {
+	public void delete(Item item) 
+	{
 		String sql = "DELETE FROM item WHERE item_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
@@ -297,11 +297,11 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(int id) 
+	{
 		String sql = "DELETE FROM item WHERE item_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
@@ -315,7 +315,6 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
