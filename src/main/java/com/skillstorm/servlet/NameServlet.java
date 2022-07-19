@@ -17,8 +17,8 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
-@WebServlet (urlPatterns = "/warehouses/warehouses/*")
-public class WarehouseServlet extends HttpServlet
+@WebServlet (urlPatterns = "/warehouses/name/*")
+public class NameServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -5904700897033421495L;
 	ItemDAO dao = new MySQLItemDAOImpl();
@@ -31,9 +31,9 @@ public class WarehouseServlet extends HttpServlet
 		{
 			try 
 			{
-				int warehouseId = urlService.extractIdFromURL(req.getPathInfo());
+				String name = urlService.extractStringFromURL(req.getPathInfo());
 				// This means they want a specific item; fetch that item.
-				List<Item> item = dao.findByWarehouseID(warehouseId);
+				List<Item> item = dao.findByName(name);
 				if (item != null) 
 				{
 					resp.setContentType("application/json");
@@ -61,7 +61,7 @@ public class WarehouseServlet extends HttpServlet
 		{
 			InputStream reqBody = req.getInputStream();
 			Item newItem = mapper.readValue(reqBody, Item.class);
-			dao.updateWarehouse(newItem); // IF the id changed
+			dao.updateName(newItem); // IF the id changed
 			if (newItem != null) 
 			{
 				resp.setContentType("application/json");
@@ -75,5 +75,3 @@ public class WarehouseServlet extends HttpServlet
 			}
 		}
 }
-
-

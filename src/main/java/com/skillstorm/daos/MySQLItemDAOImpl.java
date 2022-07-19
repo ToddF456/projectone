@@ -429,7 +429,6 @@ public class MySQLItemDAOImpl implements ItemDAO{
 			e.printStackTrace();
 		}
 		
-		
 	}
 
 }

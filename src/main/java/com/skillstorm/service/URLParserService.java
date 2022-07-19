@@ -8,4 +8,10 @@ public class URLParserService
 		String[] splitString = url.split("/");
 		return Integer.parseInt(splitString[1]);
 	}
+	
+	public String extractStringFromURL(String url)
+	{
+		String[] splitString = url.split("/");
+		return splitString[1];
+	}
 }

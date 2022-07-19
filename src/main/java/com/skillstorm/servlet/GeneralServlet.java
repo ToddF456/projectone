@@ -61,7 +61,7 @@ public class GeneralServlet extends HttpServlet
 	{
 		InputStream reqBody = req.getInputStream();
 		Item newItem = mapper.readValue(reqBody, Item.class);
-		newItem = dao.save(newItem); // IF the id changed
+		dao.save(newItem); // IF the id changed
 		if (newItem != null) 
 		{
 			resp.setContentType("application/json");
@@ -71,7 +71,7 @@ public class GeneralServlet extends HttpServlet
 		else 
 		{
 			resp.setStatus(400);
-			resp.getWriter().print(mapper.writeValueAsString(new NotFound("Created item.")));
+			resp.getWriter().print(mapper.writeValueAsString(new NotFound("Item was not found.")));
 		}
 	}
 
