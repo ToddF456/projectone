@@ -274,7 +274,6 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	@Override
 	public Item save(Item item) 
 	{
-
 		String sql = "INSERT INTO item (warehouse_id, item_name, item_price) VALUES (?, ?, ?)";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
 		{
