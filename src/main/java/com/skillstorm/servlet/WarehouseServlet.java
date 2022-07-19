@@ -17,7 +17,7 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
-@WebServlet (urlPatterns = "/warehouses")
+@WebServlet (urlPatterns = "/warehouses/general/*")
 public class WarehouseServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -5904700897033421495L;
@@ -43,9 +43,8 @@ public class WarehouseServlet extends HttpServlet
 			{
 				resp.setStatus(404);
 				resp.getWriter().print(mapper.writeValueAsString(new NotFound("No"
-						+ " items with the provided Id found")));
+						+ " items with the provided Id found.")));
 			}
-				
 		} 
 		catch (Exception e) 
 		{
@@ -54,6 +53,25 @@ public class WarehouseServlet extends HttpServlet
 			System.out.println(items);
 			resp.setContentType("application/json");
 			resp.getWriter().print(mapper.writeValueAsString(items));
+		}
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+	{
+		InputStream reqBody = req.getInputStream();
+		Item newItem = mapper.readValue(reqBody, Item.class);
+		newItem = dao.save(newItem); // IF the id changed
+		if (newItem != null) 
+		{
+			resp.setContentType("application/json");
+			resp.getWriter().print(mapper.writeValueAsString(newItem));
+			resp.setStatus(201); // The default is 200
+		} 
+		else 
+		{
+			resp.setStatus(400);
+			resp.getWriter().print(mapper.writeValueAsString(new NotFound("Created item.")));
 		}
 	}
 

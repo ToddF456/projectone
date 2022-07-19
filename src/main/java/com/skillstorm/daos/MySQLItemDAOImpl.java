@@ -13,10 +13,7 @@ import java.util.List;
 import com.skillstorm.model.Item;
 import com.skillstorm.conf.WarehouseDbCreds;
 
-
-
 public class MySQLItemDAOImpl implements ItemDAO{
-
 	
 	/**
 	 * This method find each row within the items table, the main table for this warehouse.
@@ -64,7 +61,6 @@ public class MySQLItemDAOImpl implements ItemDAO{
 			{
 				return new Item(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
 			}
-			
 		}
 		catch(SQLException e)
 		{
@@ -92,7 +88,6 @@ public class MySQLItemDAOImpl implements ItemDAO{
 			{
 				return new Item(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
 			}
-			
 		}
 		catch(SQLException e)
 		{
@@ -100,7 +95,6 @@ public class MySQLItemDAOImpl implements ItemDAO{
 		}
 		return null;
 	}
-	
 
 	/**
 	 * This method lists all of the items located in the respective warehouse using the warehouse ID.
