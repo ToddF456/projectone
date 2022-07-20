@@ -13,7 +13,7 @@ export class ItemListComponent implements OnInit {
   searchId :number;
   warehouseSearchId :number;
   item :any;
-  warehouseItem :any;
+  warehouseItems :Array<any> = [];
   saveItem :any = {};
 
 
@@ -45,7 +45,7 @@ export class ItemListComponent implements OnInit {
   {
     this.service.findByWarehouseId(this.warehouseSearchId).subscribe(data =>
       {
-        this.warehouseItem = data;
+        this.warehouseItems = data;
       })
   }
 
