@@ -16,7 +16,7 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
-@WebServlet (urlPatterns = "/warehouses/delete/*")
+@WebServlet (urlPatterns = "/warehouses/delete")
 public class DeleteServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -5904700897033421495L;

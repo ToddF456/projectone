@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemApiService } from '../item-api.service';
 
 @Component({
   selector: 'app-item-delete',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemDeleteComponent implements OnInit {
 
-  constructor() { }
+  service :ItemApiService;
+  item :any = {};
 
-  ngOnInit(): void {
+
+  constructor(service :ItemApiService) 
+  { 
+    this.service = service; 
+  }
+
+  ngOnInit(): void {}
+
+  deleteItem(item: any) :void
+  {
+    this.service.delete(item).subscribe(resp =>
+      {
+        console.log(resp);
+      })
   }
 
 }

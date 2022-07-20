@@ -1,0 +1,29 @@
+<!-- Changes the warehouse ID of an item -->
+<h1>Change the warehouse an item is in</h1>
+<form (submit)= "updateWarehouse(warehouseItem)">
+
+    <input type="number" name="itemId" [(ngModel)]= "warehouseItem.id"/>
+    <input type="number" name="itemWarehouseId" [(ngModel)]= "warehouseItem.warehouseID"/>
+    <input type="submit">
+
+</form>
+
+<!-- Changes the name of an item -->
+<h1>Change the name of an item</h1>
+<form (submit)= "updateName(nameItem)">
+
+    <input type="number" name="itemId" [(ngModel)]= "nameItem.id"/>
+    <input type="text" name="itemName" [(ngModel)]= "nameItem.name"/>
+    <input type="submit">
+
+</form>
+
+<!-- Changes the price of an item -->
+<h1>Change the price of an item</h1>
+<form (submit)= "updatePrice(priceItem)">
+
+    <input type="number" name="itemId" [(ngModel)]= "priceItem.id"/>
+    <input type="number" name="itemWarehouseId" [(ngModel)]= "priceItem.price"/>
+    <input type="submit">
+
+</form>

@@ -1,5 +1,20 @@
-<app-item-find></app-item-find>
 
-<hr>
+<html>
+    <div>
+        <h1 >Chef Excellence's Food Storage Warehouses</h1>
+    
+        <a [routerLink]="['/item-list']">Lists of Items</a>
+        |
+        <a [routerLink]="['/item-find']">Find Items</a>
+        |
+        <a [routerLink]="['/item-save']">Store Items</a>
+        |
+        <a [routerLink]="['/item-update']">Update Items</a>
+        |
+        <a [routerLink]="['/item-delete']">Delete Items</a>
+    
+        <router-outlet></router-outlet>
+    
+    </div>
+</html>
 
-<app-item-list></app-item-list>

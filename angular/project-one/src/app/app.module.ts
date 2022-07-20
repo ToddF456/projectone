@@ -9,6 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { ItemFindComponent } from './item-find/item-find.component';
 import { ItemSaveComponent } from './item-save/item-save.component';
 import { ItemDeleteComponent } from './item-delete/item-delete.component';
+import { ItemUpdateComponent } from './item-update/item-update.component';
+import { ButtonModule } from 'primeng/button'
+import {TableModule} from 'primeng/table'
+import {DropdownModule} from 'primeng/dropdown'
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import { ItemDeleteComponent } from './item-delete/item-delete.component';
     ItemListComponent,
     ItemFindComponent,
     ItemSaveComponent,
-    ItemDeleteComponent
+    ItemDeleteComponent,
+    ItemUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
+    TableModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,14 +11,20 @@ export class ItemListComponent implements OnInit {
   service :ItemApiService;
   items :Array<any> = [];
   warehouseSearchId :number;
+  nameSearch :String;
+  priceSearchId :number;
   warehouseItems :Array<any> = [];
-  saveItem :any = {};
+  warehouseOptions :Array<number> = [1, 2, 3]
+  nameItems :Array<any> = [];
+  priceItems :Array<any> = [];
 
 
   constructor(service :ItemApiService) 
   { 
     this.service = service; 
     this.warehouseSearchId = 0;
+    this.nameSearch = "";
+    this.priceSearchId = 0;
   }
 
   ngOnInit(): void 
@@ -38,11 +44,19 @@ export class ItemListComponent implements OnInit {
       })
   }
 
-  createItem(saveItem: any) :void
+  nameList() :void
   {
-    this.service.save(saveItem).subscribe(resp =>
+    this.service.findByName(this.nameSearch).subscribe(data =>
       {
-        console.log(resp);
+        this.nameItems = data;
+      })
+  }
+
+  priceList() :void
+  {
+    this.service.findByPrice(this.priceSearchId).subscribe(data =>
+      {
+        this.priceItems = data;
       })
   }
   

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemApiService } from '../item-api.service';
 
 @Component({
   selector: 'app-item-save',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemSaveComponent implements OnInit {
 
-  constructor() { }
+  service :ItemApiService;
+  item :any = {};
 
-  ngOnInit(): void {
+  constructor(service :ItemApiService) 
+  { 
+    this.service = service; 
+  }
+
+  ngOnInit(): void {}
+
+  saveItem(item: any) :void
+  {
+    this.service.save(item).subscribe(resp =>
+      {
+        console.log(resp);
+      })
   }
 
 }

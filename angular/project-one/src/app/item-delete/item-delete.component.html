@@ -1,1 +1,7 @@
-<p>item-delete works!</p>
+<h1>Delete an item in the warehouse by using it's ID number</h1>
+<form (submit)= "deleteItem(item)">
+
+    <input type="number" name="itemId" [(ngModel)]= "item.id"/>
+    <input type="submit">
+
+</form>

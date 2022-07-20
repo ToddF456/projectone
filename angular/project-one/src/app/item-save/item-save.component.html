@@ -1,1 +1,10 @@
-<p>item-save works!</p>
+<!-- Creating a new item in the database -->
+<h1>Save a new item in the warehouse</h1>
+<form (submit)= "saveItem(item)">
+
+    <input type="number" name="itemWarehouseId" [(ngModel)]= "item.warehouseID"/>
+    <input type="text" name="itemName" [(ngModel)]= "item.name"/>
+    <input type="number" name="itemPrice" [(ngModel)]= "item.price"/>
+    <input type="submit">
+
+</form>
