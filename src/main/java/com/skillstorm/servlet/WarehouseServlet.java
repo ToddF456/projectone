@@ -33,7 +33,7 @@ public class WarehouseServlet extends HttpServlet
 			{
 				int warehouseId = urlService.extractIdFromURL(req.getPathInfo());
 				// This means they want a specific item; fetch that item.
-				List<Item> item = dao.findByWarehouseID(warehouseId);
+				List<Item> item = dao.findByWarehouseId(warehouseId);
 				if (item != null) 
 				{
 					resp.setContentType("application/json");

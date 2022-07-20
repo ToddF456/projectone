@@ -135,7 +135,7 @@ public class Item
 	 */
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", warehouse ID=" + warehouseId + ", name=" + name + ", price=" + price + "]";
+		return "Item [ID=" + id + ", Warehouse ID=" + warehouseId + ", Name=" + name + ", Price=" + price + "]";
 	}
 	
 	

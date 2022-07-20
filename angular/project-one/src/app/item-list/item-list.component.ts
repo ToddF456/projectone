@@ -10,9 +10,19 @@ export class ItemListComponent implements OnInit {
 
   service :ItemApiService;
   items :Array<any> = [];
+  searchId :number;
+  warehouseSearchId :number;
+  item :any;
+  warehouseItem :any;
+  saveItem :any = {};
 
 
-  constructor(service :ItemApiService) { this.service = service }
+  constructor(service :ItemApiService) 
+  { 
+    this.service = service;
+    this.searchId = 0; 
+    this.warehouseSearchId = 0;
+  }
 
   ngOnInit(): void 
   {
@@ -20,6 +30,31 @@ export class ItemListComponent implements OnInit {
       {
         this.items = data;
       })
+
   }
 
+  onChange() :void
+  {
+    this.service.findById(this.searchId).subscribe(data =>
+      {
+        this.item = data;
+      })
+  }
+
+  warehouseCheck() :void
+  {
+    this.service.findByWarehouseId(this.warehouseSearchId).subscribe(data =>
+      {
+        this.warehouseItem = data;
+      })
+  }
+
+  submit(saveItem: any) :void
+  {
+    this.service.save(saveItem).subscribe(resp =>
+      {
+        console.log(resp);
+      })
+  }
+  
 }

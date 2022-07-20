@@ -73,7 +73,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	 * This method finds an item based on it's specific item ID and warehouse ID.
 	 */
 	@Override
-	public Item findByIdAndWarehouseID(int id, int warehouseId) 
+	public Item findByIdAndWarehouseId(int id, int warehouseId) 
 	{
 		String sql = "SELECT * FROM item WHERE item_id = ? AND warehouse_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
@@ -100,7 +100,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	 * This method lists all of the items located in the respective warehouse using the warehouse ID.
 	 */
 	@Override
-	public List<Item> findByWarehouseID(int warehouseId) 
+	public List<Item> findByWarehouseId(int warehouseId) 
 	{
 		String sql = "SELECT * FROM item WHERE warehouse_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
@@ -156,7 +156,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	 * This method lists all of the items within a specific warehouse.
 	 */
 	@Override
-	public List<Item> findByNameAndWarehouseID(String name, int warehouseId) 
+	public List<Item> findByNameAndWarehouseId(String name, int warehouseId) 
 	{
 		String sql = "SELECT * FROM item WHERE item_name = ? AND warehouse_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())
@@ -213,7 +213,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	 *This method lists all of the items within a specific warehouse.
 	 */
 	@Override
-	public List<Item> findByPriceAndWarehouseID(int price, int warehouseId) 
+	public List<Item> findByPriceAndWarehouseId(int price, int warehouseId) 
 	{
 		String sql = "SELECT * FROM item WHERE item_price = ? AND warehouse_id = ?";
 		try (Connection conn = WarehouseDbCreds.getInstance().getConnection())

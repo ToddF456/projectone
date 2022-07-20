@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/projectone/warehouses/general'
+  generalUrl: 'http://localhost:8080/projectone/warehouses/general/',
+  warehouseUrl: 'http://localhost:8080/projectone/warehouses/warehouses/',
+  nameUrl: 'http://localhost:8080/projectone/warehouses/name/',
+  priceUrl: 'http://localhost:8080/projectone/warehouses/price/',
+  deleteUrl: 'http://localhost:8080/projectone/warehouses/delete/'
 };
 
 /*
