@@ -1,0 +1,8 @@
+<!-- Finding item based on ID -->
+<input type="number" name="SearchId" [(ngModel)] ="searchId" (change)= "onChange()">
+
+<section *ngIf= "item">
+    <div>ID: {{item.id}}</div>
+    <div>Name: {{item.name}}</div>
+    <div>Price: {{item.price}}</div>
+</section>

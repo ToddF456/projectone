@@ -10,17 +10,14 @@ export class ItemListComponent implements OnInit {
 
   service :ItemApiService;
   items :Array<any> = [];
-  searchId :number;
   warehouseSearchId :number;
-  item :any;
   warehouseItems :Array<any> = [];
   saveItem :any = {};
 
 
   constructor(service :ItemApiService) 
   { 
-    this.service = service;
-    this.searchId = 0; 
+    this.service = service; 
     this.warehouseSearchId = 0;
   }
 
@@ -33,15 +30,7 @@ export class ItemListComponent implements OnInit {
 
   }
 
-  onChange() :void
-  {
-    this.service.findById(this.searchId).subscribe(data =>
-      {
-        this.item = data;
-      })
-  }
-
-  warehouseCheck() :void
+  warehouseList() :void
   {
     this.service.findByWarehouseId(this.warehouseSearchId).subscribe(data =>
       {
@@ -49,7 +38,7 @@ export class ItemListComponent implements OnInit {
       })
   }
 
-  submit(saveItem: any) :void
+  createItem(saveItem: any) :void
   {
     this.service.save(saveItem).subscribe(resp =>
       {

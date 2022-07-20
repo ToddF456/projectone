@@ -1,17 +1,5 @@
-
-<!-- Finding item based on ID -->
-<input type="number" name="SearchId" [(ngModel)] ="searchId" (change)= "onChange()">
-
-<section *ngIf= "item">
-    <div>ID: {{item.id}}</div>
-    <div>Name: {{item.name}}</div>
-    <div>Price: {{item.price}}</div>
-</section>
-
-<hr>
-
 <!-- Finding an tiem based on the warehouse it is located in -->
-<input type="number" name="WarehouseSearchId" [(ngModel)] ="warehouseSearchId" (change)= "warehouseCheck()">
+<input type="number" name="WarehouseSearchId" [(ngModel)] ="warehouseSearchId" (change)= "warehouseList()">
 
 <tr *ngFor= "let item of warehouseItems">
     <td>ID: {{item.id}}</td>
@@ -23,7 +11,7 @@
 
 <!-- Creating a new item in the database -->
 <h1>Save a new item in the warehouse</h1>
-<form (submit)= "submit(saveItem)">
+<form (submit)= "createItem(saveItem)">
 
     <input type="number" name="saveItemWarehouseId" [(ngModel)]= "saveItem.warehouseID"/>
     <input type="text" name="saveItemName" [(ngModel)]= "saveItem.name"/>
