@@ -1,17 +1,31 @@
 
+<!-- The primary html file that contains each of the elements within the components. 
+    Routing is used to allow links to appear which guide you to the CRUd operation you want -->
 <html>
     <div>
         <h1 >Chef Excellence's Food Storage Facilities</h1>
     
-        <a [routerLink]="['/item-list']">Lists of Items</a>
-        |
-        <a [routerLink]="['/item-find']">Find Items</a>
-        |
-        <a [routerLink]="['/item-save']">Store Items</a>
-        |
-        <a [routerLink]="['/item-update']">Update Items</a>
-        |
-        <a [routerLink]="['/item-delete']">Delete Items</a>
+        <div class="main">
+            <button pButton pRipple type="button"  class="p-button-raised p-button-text" onClick = [routerLink]>
+                <a [routerLink]="['/item-list']">Lists of Items</a>
+            </button>
+
+            <button pButton pRipple type="button"  class="p-button-raised p-button-text" onClick = [routerLink]>
+                <a [routerLink]="['/item-find']">Find Items</a>
+            </button>
+
+            <button pButton pRipple type="button"  class="p-button-raised p-button-text" onClick = [routerLink]>
+                <a [routerLink]="['/item-save']">Store Items</a>
+            </button>
+
+            <button pButton pRipple type="button"  class="p-button-raised p-button-text" onClick = [routerLink]>
+                <a [routerLink]="['/item-update']">Update Items</a>
+            </button>
+
+            <button pButton pRipple type="button"  class="p-button-raised p-button-text" onClick = [routerLink]>
+                <a [routerLink]="['/item-delete']">Delete Items</a>
+            </button>
+        </div>
     
         <router-outlet></router-outlet>
     

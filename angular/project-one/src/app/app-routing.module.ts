@@ -6,6 +6,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { ItemSaveComponent } from './item-save/item-save.component';
 import { ItemUpdateComponent } from './item-update/item-update.component';
 
+//Paths that route to specific components to be placed into a routerlink.
 const routes: Routes = [
     { path: 'item-list', component: ItemListComponent},
     { path: 'item-find', component: ItemFindComponent},

@@ -13,6 +13,7 @@ export class ItemUpdateComponent implements OnInit {
   nameItem :any = {};
   priceItem :any = {};
 
+  //Initiates the API when the component is loaded.
   constructor(service :ItemApiService) 
   { 
     this.service = service; 
@@ -20,6 +21,7 @@ export class ItemUpdateComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //Updates the warehouse ID of an item
   updateWarehouse(warehouseItem: any) :void
   {
     this.service.updateWarehouseId(warehouseItem).subscribe(resp =>
@@ -28,6 +30,7 @@ export class ItemUpdateComponent implements OnInit {
       })
   }
 
+  //Updates the warehouse ID of an item
   updateName(nameItem: any) :void
   {
     this.service.updateName(nameItem).subscribe(resp =>
@@ -36,6 +39,7 @@ export class ItemUpdateComponent implements OnInit {
       })
   }
 
+  //Updates the warehouse ID of an item
   updatePrice(priceItem: any) :void
   {
     this.service.updatePrice(priceItem).subscribe(resp =>

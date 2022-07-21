@@ -1,4 +1,6 @@
-html {background-color: rgb(148, 190, 245);}
+html {background-color: rgb(148, 190, 245);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 h1 {
     background-color: rgb(192, 102, 24);
@@ -6,7 +8,12 @@ h1 {
     text-align: center;
 }
 
-a {
-    font-size: 24px;
-    text-align: center;
+.main{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+button{
+    font-size: 36px;
 }

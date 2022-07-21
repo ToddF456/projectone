@@ -11,6 +11,7 @@ export class ItemSaveComponent implements OnInit {
   service :ItemApiService;
   item :any = {};
 
+  //Initiates the API when the component is loaded.
   constructor(service :ItemApiService) 
   { 
     this.service = service; 
@@ -18,6 +19,7 @@ export class ItemSaveComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //Saves an item to the database, using the warehouse ID, name, and price text fields
   saveItem(item: any) :void
   {
     this.service.save(item).subscribe(resp =>

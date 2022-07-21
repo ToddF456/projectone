@@ -11,7 +11,7 @@ export class ItemDeleteComponent implements OnInit {
   service :ItemApiService;
   item :any = {};
 
-
+  //Initiates the API when the component is loaded.
   constructor(service :ItemApiService) 
   { 
     this.service = service; 
@@ -19,6 +19,7 @@ export class ItemDeleteComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //Delete item function for this component
   deleteItem(item: any) :void
   {
     this.service.delete(item).subscribe(resp =>

@@ -18,7 +18,7 @@ export class ItemListComponent implements OnInit {
   nameItems :Array<any> = [];
   priceItems :Array<any> = [];
 
-
+  //Initiates the API when the component is loaded.
   constructor(service :ItemApiService) 
   { 
     this.service = service; 
@@ -27,6 +27,7 @@ export class ItemListComponent implements OnInit {
     this.priceSearchId = 0;
   }
 
+  //Lists all of the items in the database when the component is initialized.
   ngOnInit(): void 
   {
     this.service.findAll().subscribe(data =>
@@ -36,6 +37,7 @@ export class ItemListComponent implements OnInit {
 
   }
 
+  //Lists items based on their warehouse ID
   warehouseList() :void
   {
     this.service.findByWarehouseId(this.warehouseSearchId).subscribe(data =>
@@ -44,6 +46,7 @@ export class ItemListComponent implements OnInit {
       })
   }
 
+  //Lists items based on their name
   nameList() :void
   {
     this.service.findByName(this.nameSearch).subscribe(data =>
@@ -52,6 +55,7 @@ export class ItemListComponent implements OnInit {
       })
   }
 
+  //Lists items based on their price
   priceList() :void
   {
     this.service.findByPrice(this.priceSearchId).subscribe(data =>

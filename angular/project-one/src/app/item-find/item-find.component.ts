@@ -11,7 +11,8 @@ export class ItemFindComponent implements OnInit {
   service :ItemApiService;
   searchId :number;
   item :any;
-
+  
+  //Initiates the API when the component is loaded.
   constructor(service :ItemApiService) 
   { 
     this.service = service;
@@ -21,6 +22,7 @@ export class ItemFindComponent implements OnInit {
 
   ngOnInit(): void {}
   
+  //Finding the ID method for this component.
   onChange() :void
   {
     this.service.findById(this.searchId).subscribe(data =>

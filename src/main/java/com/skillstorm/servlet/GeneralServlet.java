@@ -17,6 +17,14 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
+/**
+ * General Servlet class containing the basic methods to retrieve 
+ * the list of items in a database. Every method returns JSON information
+ * to be parsed by the frontend.
+ * 
+ * @author Todd Foreman
+ *
+ */
 @WebServlet (urlPatterns = "/warehouses/general/*")
 public class GeneralServlet extends HttpServlet
 {
@@ -25,7 +33,11 @@ public class GeneralServlet extends HttpServlet
 	ObjectMapper mapper = new ObjectMapper();
 	URLParserService urlService = new URLParserService();
 	
-	// Returns all items
+	
+	/**
+	 * Retrieves an item based on the id number sent through the url, otherwise 
+	 * returns the list of all items in database.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
@@ -56,6 +68,10 @@ public class GeneralServlet extends HttpServlet
 		}
 	}
 	
+	
+	/**
+	 * Creates a new item when sent with JSON information from the frontend.
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
