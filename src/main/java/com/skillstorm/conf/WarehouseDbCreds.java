@@ -9,9 +9,10 @@ import java.util.Properties;
 
 
 /**
- * @author Todd Foreman
  * This the Warehouse Database Credentials class, lifted from the 
  * previous Chinook Database Credentials Class created during lecture.
+ * 
+ * @author Todd Foreman
  */
 public class WarehouseDbCreds 
 {
@@ -21,6 +22,11 @@ public class WarehouseDbCreds
 	private String username;
 	private String password;
 	
+	/**
+	 * Loads the JDBC Driver necessary to connect 
+	 * to the database, as well as retrieving the information from the 
+	 * application.properties file which contains the actual database access information.
+	 */
 	private WarehouseDbCreds() 
 	{
 		try 
@@ -52,6 +58,11 @@ public class WarehouseDbCreds
 		}
 	}
 	
+	/**
+	 * Lazily initiates an instance when the database 
+	 * needs to be contacted (Mostly when the first query is executed).
+	 * @return
+	 */
 	public static WarehouseDbCreds getInstance() 
 	{
 		if (instance == null) 
@@ -62,22 +73,41 @@ public class WarehouseDbCreds
 		return instance;
 	}
 
+	/**
+	 * Retrieves the database url.
+	 * @return
+	 */
 	public String getUrl() 
 	{
 		return url;
 	}
 
+	/**
+	 * Retrieves the database username.
+	 * @return
+	 */
 	public String getUsername() 
 	{
 		return username;
 	}
 
+	/**
+	 * Retrieves the database password.
+	 * @return
+	 */
 	public String getPassword() 
 	{
 		return password;
 	}
 	
-	// Makes it simpler to retrieve a connection
+	
+	/**
+	 * Opens a connection via a Driver Manager, which 
+	 * manages the JDBC driver, and allows the proper database 
+	 * properties to be properly parsed.
+	 * @return
+	 * @throws SQLException
+	 */
 	public Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(url, username, password);
 	}

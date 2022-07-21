@@ -1,15 +1,16 @@
 package com.skillstorm.model;
 
 /**
- * @author Todd Foreman
  * This is the item class, which contains the methods to properly 
  * get and set the variables that an item object has.
+ * 
+ * @author Todd Foreman
  */
 public class Item 
 {
 
 	/**
-	 * These are the private variables used to hold information 
+	 * The private variables used to hold information 
 	 * from the database
 	 */
 	private int id;
@@ -57,7 +58,7 @@ public class Item
 	}
 
 	/**
-	 * This method retrieves the item ID.
+	 * Retrieves the item ID.
 	 * @return
 	 */
 	public int getId() 
@@ -66,7 +67,7 @@ public class Item
 	}
 
 	/**
-	 * This method sets the item ID.
+	 * Sets the item ID.
 	 * @param id
 	 */
 	public void setId(int id) 
@@ -75,7 +76,7 @@ public class Item
 	}
 
 	/**
-	 * This method retrieves the warehouse ID.
+	 * Retrieves the warehouse ID.
 	 * @return
 	 */
 	public int getWarehouseID()
@@ -84,7 +85,7 @@ public class Item
 	}
 	
 	/**
-	 * This method sets the warehouse ID.
+	 * Sets the warehouse ID.
 	 * @param warehouseId
 	 */
 	public void setWarehouseID(int warehouseId)
@@ -93,7 +94,7 @@ public class Item
 	}
 	
 	/**
-	 * This method retrieves the item name.
+	 * Retrieves the item name.
 	 * @return
 	 */
 	public String getName() 
@@ -102,7 +103,7 @@ public class Item
 	}
 	
 	/**
-	 * This method sets the item name.
+	 * Sets the item name.
 	 * @param name
 	 */
 	public void setName(String name) 
@@ -111,7 +112,7 @@ public class Item
 	}
 
 	/**
-	 * This method retrieves the item price.
+	 * Retrieves the item price.
 	 * @return
 	 */
 	public int getPrice() 
@@ -120,7 +121,7 @@ public class Item
 	}
 
 	/**
-	 * This method sets the item price.
+	 * Sets the item price.
 	 * @param price
 	 */
 	public void setPrice(int price) 
@@ -129,7 +130,7 @@ public class Item
 	}
 	
 	/**
-	 * This method overrides the toString method in the String 
+	 * Overrides the toString method in the String 
 	 * class to print out the retrieved variables from the 
 	 * database.
 	 */

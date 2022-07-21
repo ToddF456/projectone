@@ -5,8 +5,9 @@ import java.util.List;
 import com.skillstorm.model.Item;
 
 /**
- * @author Todd Foreman
  * The Item Data Access Object interface contains all of the necessary methods to properly execute CRUD operations.
+ * 
+ * @author Todd Foreman
  */
 public interface ItemDAO 
 {

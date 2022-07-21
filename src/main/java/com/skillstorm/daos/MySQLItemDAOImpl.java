@@ -13,10 +13,16 @@ import java.util.List;
 import com.skillstorm.model.Item;
 import com.skillstorm.conf.WarehouseDbCreds;
 
+/**
+ * This is the MySQLDAOImpl class, which implements the various methods from the 
+ * interface ItemDAO to create methods which query the database.
+ * 
+ * @author Todd Foreman
+ */
 public class MySQLItemDAOImpl implements ItemDAO{
 	
 	/**
-	 * This method find each row within the items table, the main table for this warehouse.
+	 * Finds each row within the items table, the main table for this warehouse.
 	 */
 	@Override
 	public List<Item> findAll() 
@@ -44,7 +50,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method finds an item based on it's specific item ID.
+	 * Finds an item based on it's specific item ID.
 	 */
 	@Override
 	public Item findById(int id) 
@@ -70,7 +76,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 	
 	/**
-	 * This method finds an item based on it's specific item ID and warehouse ID.
+	 * Finds an item based on it's specific item ID and warehouse ID.
 	 */
 	@Override
 	public Item findByIdAndWarehouseId(int id, int warehouseId) 
@@ -97,7 +103,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method lists all of the items located in the respective warehouse using the warehouse ID.
+	 * Lists all of the items located in the respective warehouse using the warehouse ID.
 	 */
 	@Override
 	public List<Item> findByWarehouseId(int warehouseId) 
@@ -125,7 +131,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method lists all of the items which have the specified name in the parameter.
+	 * Lists all of the items which have the specified name in the parameter.
 	 */
 	@Override
 	public List<Item> findByName(String name) 
@@ -153,7 +159,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 	
 	/**
-	 * This method lists all of the items within a specific warehouse.
+	 * Lists all of the items within a specific warehouse.
 	 */
 	@Override
 	public List<Item> findByNameAndWarehouseId(String name, int warehouseId) 
@@ -182,7 +188,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 *This method lists all of the items which have the specified price in the parameter
+	 * Lists all of the items which have the specified price in the parameter
 	 */
 	@Override
 	public List<Item> findByPrice(int price) 
@@ -210,7 +216,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 	
 	/**
-	 *This method lists all of the items within a specific warehouse.
+	 * Lists all of the items within a specific warehouse.
 	 */
 	@Override
 	public List<Item> findByPriceAndWarehouseId(int price, int warehouseId) 
@@ -268,7 +274,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method creates a new item in the database, allowing the user to
+	 * Creates a new item in the database, allowing the user to
 	 * add the item to any warehouse, set the name of the item, and the price of the item.
 	 */
 	@Override
@@ -302,7 +308,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method changes which warehouse the item is currently occupying.
+	 * Changes which warehouse the item is currently occupying.
 	 */
 	@Override
 	public void updateWarehouse(Item item) 
@@ -323,7 +329,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method changes the name of an item.
+	 * Changes the name of an item.
 	 */
 	@Override
 	public void updateName(Item item) 
@@ -344,7 +350,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method changes the price of an item.
+	 * Changes the price of an item.
 	 */
 	@Override
 	public void updatePrice(Item item) 
@@ -365,7 +371,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method deletes an item from the database.
+	 * Deletes an item from the database.
 	 */
 	@Override
 	public void delete(Item item) 
@@ -386,7 +392,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method deletes an item from the database based on the item id.
+	 * Deletes an item from the database based on the item id.
 	 */
 	@Override
 	public void delete(int id) 
@@ -407,7 +413,7 @@ public class MySQLItemDAOImpl implements ItemDAO{
 	}
 
 	/**
-	 * This method deletes multiple items from a database, by using 
+	 * Deletes multiple items from a database, by using 
 	 * an array of item id's to delete them.
 	 */
 	@Override
