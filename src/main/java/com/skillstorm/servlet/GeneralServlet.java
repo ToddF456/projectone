@@ -18,7 +18,7 @@ import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
 /**
- * General Servlet class containing the basic methods to retrieve 
+ * This class contains the basic methods to retrieve 
  * the list of items in a database. Every method returns JSON information
  * to be parsed by the frontend.
  * 

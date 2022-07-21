@@ -17,6 +17,12 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
+/**
+ * This class contains all of the price related methods
+ * 
+ * @author Todd Foreman
+ *
+ */
 @WebServlet (urlPatterns = "/warehouses/price/*")
 public class PriceServlet extends HttpServlet
 {
@@ -25,7 +31,10 @@ public class PriceServlet extends HttpServlet
 	ObjectMapper mapper = new ObjectMapper();
 	URLParserService urlService = new URLParserService();
 		
-		// Returns all items
+		
+		/**
+		 * Retrieves all of the items within a warehouse based on their price.
+		 */
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 		{
@@ -56,6 +65,9 @@ public class PriceServlet extends HttpServlet
 			}
 		}
 		
+		/**
+		 * Updates the price of an item on the database based on JSON received.
+		 */
 		@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 		{

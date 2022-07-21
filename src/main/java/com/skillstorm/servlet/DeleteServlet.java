@@ -16,6 +16,12 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
+/**
+ * This class contains the delete method.
+ * 
+ * @author Todd Foreman
+ *
+ */
 @WebServlet (urlPatterns = "/warehouses/delete")
 public class DeleteServlet extends HttpServlet
 {
@@ -25,6 +31,9 @@ public class DeleteServlet extends HttpServlet
 	URLParserService urlService = new URLParserService();
 		
 		
+		/**
+		 * Deletes an item from the database based on JSON received.
+		 */
 		@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 		{

@@ -17,6 +17,12 @@ import com.skillstorm.model.Item;
 import com.skillstorm.model.NotFound;
 import com.skillstorm.service.URLParserService;
 
+/**
+ * This class contains all of the name related methods
+ * 
+ * @author Todd Foreman
+ *
+ */
 @WebServlet (urlPatterns = "/warehouses/name/*")
 public class NameServlet extends HttpServlet
 {
@@ -25,7 +31,10 @@ public class NameServlet extends HttpServlet
 	ObjectMapper mapper = new ObjectMapper();
 	URLParserService urlService = new URLParserService();
 		
-		// Returns all items
+		
+		/**
+		 * Retrieves all of the items within a warehouse based on their name.
+		 */
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 		{
@@ -56,6 +65,9 @@ public class NameServlet extends HttpServlet
 			}
 		}
 		
+		/**
+		 * Updates the name of an item on the database based on JSON received.
+		 */
 		@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 		{
