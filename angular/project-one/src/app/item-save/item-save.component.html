@@ -1,9 +1,13 @@
 <!-- Creating a new item in the database -->
 <h1>Save a new item in the warehouse</h1>
+
 <form (submit)= "saveItem(item)">
 
+    <label>Input item warehouse ID</label>
     <input type="number" name="itemWarehouseId" [(ngModel)]= "item.warehouseID"/>
+    <label>Input item name</label>
     <input type="text" name="itemName" [(ngModel)]= "item.name"/>
+    <label>Input item price</label>
     <input type="number" name="itemPrice" [(ngModel)]= "item.price"/>
     <input type="submit">
 

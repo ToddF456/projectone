@@ -2,7 +2,9 @@
 <h1>Change the warehouse an item is in</h1>
 <form (submit)= "updateWarehouse(warehouseItem)">
 
+    <label>Input item ID</label>
     <input type="number" name="itemId" [(ngModel)]= "warehouseItem.id"/>
+    <label>Input new item warehouse ID</label>
     <input type="number" name="itemWarehouseId" [(ngModel)]= "warehouseItem.warehouseID"/>
     <input type="submit">
 
@@ -12,7 +14,9 @@
 <h1>Change the name of an item</h1>
 <form (submit)= "updateName(nameItem)">
 
+    <label>Input item ID</label>
     <input type="number" name="itemId" [(ngModel)]= "nameItem.id"/>
+    <label>Input new item name</label>
     <input type="text" name="itemName" [(ngModel)]= "nameItem.name"/>
     <input type="submit">
 
@@ -22,8 +26,10 @@
 <h1>Change the price of an item</h1>
 <form (submit)= "updatePrice(priceItem)">
 
+    <label>Input item ID</label>
     <input type="number" name="itemId" [(ngModel)]= "priceItem.id"/>
-    <input type="number" name="itemWarehouseId" [(ngModel)]= "priceItem.price"/>
+    <label>Input new item price</label>
+    <input type="number" name="itemPrice" [(ngModel)]= "priceItem.price"/>
     <input type="submit">
 
 </form>
