@@ -2,7 +2,7 @@ html, body {
     background-color: rgb(148, 190, 245);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 98.5vh;
-    overflow:-moz-hidden-unscrollable;
+    overflow: scroll;
 }
 
 h1 {
