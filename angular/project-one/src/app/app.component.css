@@ -1,5 +1,7 @@
 html {background-color: rgb(148, 190, 245);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 97vh;
+    overflow:-moz-hidden-unscrollable;
 }
 
 h1 {
@@ -11,9 +13,13 @@ h1 {
 .main{
     display: flex;
     justify-content: space-evenly;
-    
 }
 
 button{
     font-size: 36px;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0;
 }

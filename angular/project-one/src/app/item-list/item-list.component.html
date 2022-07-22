@@ -6,47 +6,49 @@
     <p-button label="Lookup Warehouse" (onClick)= "warehouseList()"></p-button>
     <table>
         <section>
-        <thead>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Warehouse ID</td>
-        </thead>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Warehouse ID</th>
+            </thead>
 
-        <tbody>
-            <tr *ngFor= "let item of warehouseItems">
-                <td>{{item.id}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.warehouseID}}</td>
-            </tr>
-        </tbody>
+            <tbody>
+                <tr *ngFor= "let item of warehouseItems">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.warehouseID}}</td>
+                </tr>
+            </tbody>
         </section>
     </table>
 
     <hr>
 
     <!-- Finding an item based on the requested name -->
-    <h1>List items with typed name</h1>
+    <h1>Lists items based on typed name</h1>
     <div>Input Name</div>
     <input type="text" [(ngModel)] ="nameSearch">
     <p-button label="Lookup Name" (onClick)= "nameList()"></p-button>
     <table>
-        <thead>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Warehouse ID</td>
-        </thead>
+        <section>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Warehouse ID</th>
+            </thead>
 
-        <tbody>
-            <tr *ngFor= "let item of nameItems">
-                <td>{{item.id}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.warehouseID}}</td>
-            </tr>
-        </tbody>
+            <tbody>
+                <tr *ngFor= "let item of nameItems">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.warehouseID}}</td>
+                </tr>
+            </tbody>
+        </section>
     </table>
 
     <hr>
@@ -57,21 +59,23 @@
     <input type="number" [(ngModel)] ="priceSearchId">
     <p-button label="Lookup Price" (onClick)="priceList()"></p-button>
     <table>
-        <thead>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Warehouse ID</td>
-        </thead>
+        <section>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Warehouse ID</th>
+            </thead>
 
-        <tbody>
-        <tr *ngFor= "let item of priceItems">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.warehouseID}}</td>
-        </tr>
-        </tbody>
+            <tbody>
+                <tr *ngFor= "let item of priceItems">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.warehouseID}}</td>
+                </tr>
+            </tbody>
+        </section>
     </table>
 
     <hr>
@@ -79,20 +83,22 @@
     <!-- Lists all of the items currently in the database -->
     <h1>List of all of the items within each of the warehouses</h1>
     <table>
-        <thead>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Warehouse ID</td>
-        </thead>
+        <section>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Warehouse ID</th>
+            </thead>
 
-        <tbody>
-        <tr *ngFor= "let item of items">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.warehouseID}}</td>
-        </tr>
-        </tbody>
+            <tbody>
+                <tr *ngFor= "let item of items">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.warehouseID}}</td>
+                </tr>
+            </tbody>
+        </section>
     </table>
 </html>
