@@ -11,13 +11,18 @@ h1 {
     margin-top: 0;
 }
 
+button{
+    font-size: 36px;
+}
+
+img{
+    width: 48px;
+    height: auto;
+}
+
 .main{
     display: flex;
     justify-content: space-evenly;
-}
-
-button{
-    font-size: 36px;
 }
 
 #footer{
